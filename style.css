@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    justify-content: center;
+}
