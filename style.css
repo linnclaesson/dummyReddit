@@ -8,4 +8,12 @@
     flex-direction: row;
     gap: 2em;
     justify-content: center;
+    background-color: #030303;
+    color: #d7dadc;
+    min-height: 100vh;
 }
+
+/* All fonts 
+font-family: 'IBM Plex Sans', sans-serif;
+font-family: 'Noto Sans', sans-serif;
+*/

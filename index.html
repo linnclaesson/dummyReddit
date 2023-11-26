@@ -6,14 +6,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- Style css -->
         <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="header.css" />
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;1,300;1,500;1,700&family=Source+Code+Pro:wght@500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;1,300;1,500;1,700&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600&family=Source+Code+Pro:wght@500&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Icons -->
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
     </head>
     <body>
-        <header>sticky header</header>
+        <header>
+            <a id="icon" href="index.html">
+                <img src="./img/IconReddit.png" />
+                dummyReddit
+            </a>
+            <!-- <span for="search" class="material-symbols-outlined"> search</span> -->
+            <input type="search" placeholder="Search DummyReddit..." />
+
+            <section id="header-btns">
+                <button id="app-btn">Get app</button>
+                <button id="settings-btn">...</button>
+            </section>
+        </header>
         <div id="wrapper-container">
             <section id="sidebar-menu">sidebar menu</section>
             <section id="main-container">main</section>
             <section id="sidebar-right">right</section>
         </div>
+
         <!-- js -->
         <script src="script.js"></script>
     </body>
