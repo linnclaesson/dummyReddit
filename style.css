@@ -11,6 +11,25 @@
     background-color: #030303;
     color: #d7dadc;
     min-height: 100vh;
+    padding: 1em 2em;
+}
+
+#sidebar-menu {
+    display: flex;
+    align-self: flex-start;
+    flex-grow: 1;
+}
+
+#main-container {
+    display: flex;
+    flex-grow: 3;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#sidebar-right {
+    display: flex;
+    flex-grow: 1;
 }
 
 /* All fonts 
