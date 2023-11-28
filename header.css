@@ -2,7 +2,6 @@ header {
     position: sticky;
     top: 0;
     height: 3em;
-    background-color: #030303;
     background-color: #1a1a1b;
     color: #d7dadc;
     display: flex;
@@ -11,6 +10,7 @@ header {
     justify-content: space-between;
     gap: 0.5em;
     padding: 0.5em 0.5em;
+    border-bottom: solid 1px #343536;
 }
 
 /* Icon */
@@ -31,11 +31,11 @@ a img {
 /* Search bar */
 input {
     border-radius: 2em;
-    border: solid 1px #757575;
+    border: solid 1px #343536;
     padding: 1em;
     min-width: fit-content;
     width: 50%;
-    background-color: #242323;
+    background-color: #29292b;
     color: #757575;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 300;
@@ -55,9 +55,9 @@ input {
 
 button {
     border-radius: 2em;
-    border: solid 1px #757575;
+    border: solid 1px #343536;
     padding: 1em;
-    background-color: #242323;
+    background-color: #29292b;
     color: #d7dadc;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 500;

@@ -30,7 +30,22 @@
     display: flex;
 }
 
-/* All fonts 
+/* INFO
+FONTS
 font-family: 'IBM Plex Sans', sans-serif;
 font-family: 'Noto Sans', sans-serif;
+
+COLORS
+background-color: #030303;
+elements: #1a1a1b
+highlighted elements: buttons, input fields: #29292b;
+borders: #343536
+text color: #d7dadc
+text grey color: #757575;
+
+Animations:
+border:hover high: #d7dadc
+border:hover other: #808384
+buttons:hover: #464748
+
 */
