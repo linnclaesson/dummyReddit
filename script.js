@@ -23,10 +23,16 @@ renderDummyPosts = (res) => {
         let item = res[i];
         // create elements
         let post = document.createElement('div');
+        let title = document.createElement('h2');
+        let postBody = document.createElement('p');
+        let tags = document.createElement('h4');
         // assign data to element
-        post.innerText = item.title;
+        title.innerText = item.title;
+        postBody.innerText = item.body;
+        tags.innerText = item.tags;
         // append created elements
         postsContainer.append(post);
+        post.append(title, postBody, tags);
     }
 };
 
