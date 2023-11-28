@@ -4,10 +4,9 @@
 }
 
 #wrapper-container {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
     gap: 2em;
-    justify-content: center;
     background-color: #030303;
     color: #d7dadc;
     min-height: 100vh;
@@ -17,19 +16,18 @@
 #sidebar-menu {
     display: flex;
     align-self: flex-start;
-    flex-grow: 1;
+    height: 80vh;
+    overflow: auto;
 }
 
 #main-container {
     display: flex;
-    flex-grow: 3;
     flex-direction: column;
     gap: 1em;
 }
 
 #sidebar-right {
     display: flex;
-    flex-grow: 1;
 }
 
 /* All fonts 
