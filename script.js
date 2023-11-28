@@ -29,7 +29,10 @@ renderDummyPosts = (res) => {
         // assign data to element
         title.innerText = item.title;
         postBody.innerText = item.body;
-        tags.innerText = item.tags;
+        //check amount of tags
+        console.log(item.tags.length);
+        // regulate structure of tags
+        tags.innerText = item.tags.map((tag) => '#' + tag).join(' ');
         // append created elements
         postsContainer.append(post);
         post.append(title, postBody, tags);
