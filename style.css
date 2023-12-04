@@ -6,6 +6,7 @@
 #wrapper-container {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: 'left main right';
     gap: 5em;
     background-color: #030303;
     color: #d7dadc;
@@ -15,11 +16,13 @@
 #main-container {
     display: flex;
     flex-direction: column;
+    grid-area: main;
     gap: 1em;
 }
 
 #sidebar-right {
     display: flex;
+    grid-area: right;
 }
 
 /* INFO
