@@ -1,0 +1,59 @@
+#sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    overflow: auto;
+    border-right: solid 1px #343536;
+    padding: 2em;
+}
+
+details {
+    border-top: solid 1px #343536;
+    padding: 1em 0em;
+}
+summary {
+    color: #757575;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    padding: 1em;
+}
+
+ul {
+    list-style: none;
+    text-decoration: none;
+}
+li {
+    padding: 1em;
+    padding-left: 2em;
+    color: #d7dadc;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+#sidebar-menu a {
+    margin-top: auto;
+    text-decoration: none;
+    color: #757575;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+}
+
+/* Animations */
+summary:hover {
+    padding: 1em;
+    border-radius: 5px;
+    background-color: #29292b;
+}
+
+li:hover {
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #29292b;
+}
+
+#sidebar-menu a:hover {
+    text-decoration: underline;
+}
