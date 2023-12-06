@@ -1,0 +1,12 @@
+#create-posts-container {
+    display: flex;
+}
+
+#create-default {
+    background-color: red;
+}
+
+#create-post {
+    background-color: blue;
+    display: none;
+}

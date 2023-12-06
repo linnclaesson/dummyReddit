@@ -1,7 +1,12 @@
+//ACCESS ELEMENTS
 // get section for posts by id
 let postsContainer = document.getElementById('posts-container');
+let createDefault = document.getElementById('create-default');
+let createPostDiv = document.getElementById('create-post');
 
 // FUNCTIONS
+
+// ----------- Handle fetch ------------
 // fetch dummy posts
 fetchDummy = () => {
     fetch('https://dummyjson.com/posts?limit=4&skip=20')
@@ -39,5 +44,26 @@ renderDummyPosts = (res) => {
     }
 };
 
-// CALL FUNCTIONS
+// Call fetchDummy --> fetch dummy posts
 fetchDummy();
+
+// --------- Handle create posts ------------
+createDefault.addEventListener('click', toggleCreate);
+createPostDiv.addEventListener('click', toggleCreate);
+
+let showDefault = true;
+
+function toggleCreate() {
+    console.log('here');
+    showDefault = !showDefault;
+
+    if (showDefault) {
+        createDefault.style.display = 'block';
+        createPostDiv.style.display = 'none';
+    } else {
+        createDefault.style.display = 'none';
+        createPostDiv.style.display = 'block';
+    }
+
+    console.log(showDefault);
+}
