@@ -2,11 +2,12 @@
 // get section for posts by id
 let postsContainer = document.getElementById('posts-container');
 let createDefault = document.getElementById('create-default');
-let createPostDiv = document.getElementById('create-post');
+let createPostDiv = document.getElementById('create-mode');
 let plusIcon = document.getElementById('plus');
 let inputPost = document.getElementById('input-post');
 let closeBtn = document.getElementById('close-btn');
 let closeIcon = document.getElementById('close');
+let postBtn = document.getElementById('post-btn');
 
 // FUNCTIONS
 
@@ -52,13 +53,16 @@ renderDummyPosts = (res) => {
 fetchDummy();
 
 // --------- Handle create posts ------------
+// event listeners
 inputPost.addEventListener('click', toggleCreate);
 plusIcon.addEventListener('click', toggleCreate);
 closeBtn.addEventListener('click', toggleCreate);
 closeIcon.addEventListener('click', toggleCreate);
+postBtn.addEventListener('click', toggleCreate);
 
 let showDefault = true;
 
+// Switch create post between default and create-mode
 function toggleCreate() {
     console.log('here');
     showDefault = !showDefault;

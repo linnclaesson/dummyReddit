@@ -12,7 +12,7 @@
     padding: 1em;
 }
 
-#create-post {
+#create-mode {
     background-color: #1a1a1b;
     display: none;
     flex-direction: column;
@@ -21,11 +21,11 @@
     padding: 1em;
 }
 
-#create-post-header {
+#create-mode-header {
     display: flex;
     justify-content: space-between;
 }
-#create-post-header h3 {
+#create-mode-header h3 {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 18px;
     font-weight: 500;
