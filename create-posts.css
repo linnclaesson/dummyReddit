@@ -1,12 +1,96 @@
+/* Handle container and divs*/
 #create-posts-container {
     display: flex;
 }
 
 #create-default {
-    background-color: red;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    background-color: #1a1a1b;
+    border-radius: 5px;
+    padding: 1em;
 }
 
 #create-post {
-    background-color: blue;
+    background-color: #1a1a1b;
     display: none;
+    flex-direction: column;
+    gap: 1em;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+#create-post-header {
+    display: flex;
+    justify-content: space-between;
+}
+#create-post-header h3 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#btn-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+/* Style input and textarea */
+.create-input {
+    display: flex;
+    flex-grow: 1;
+    border-radius: 5px;
+}
+
+#input-post-body {
+    display: flex;
+    height: 10em;
+    padding: 1em;
+    min-width: fit-content;
+    background-color: #29292b;
+    color: #757575;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+/* Buttons */
+#plus {
+    height: 1.5em;
+}
+#close {
+    height: 1.5em;
+    width: 1.5em;
+}
+#post-btn {
+    background-color: #d7dadc;
+    color: #757575;
+    border: none;
+    width: 10em;
+}
+
+/* Animations */
+#plus:hover {
+    cursor: pointer;
+}
+#close:hover {
+    cursor: pointer;
+}
+#close-btn:hover {
+    cursor: pointer;
+}
+#post-btn:hover {
+    cursor: pointer;
+    background-color: #ff4018;
+    color: #d7dadc;
+}
+#input-post-body:hover {
+    border-color: #d7dadc;
+}
+#input-post-body:focus {
+    border-color: #d7dadc;
+    outline: none;
+    color: #d7dadc;
 }

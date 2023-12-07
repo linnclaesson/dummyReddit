@@ -3,6 +3,10 @@
 let postsContainer = document.getElementById('posts-container');
 let createDefault = document.getElementById('create-default');
 let createPostDiv = document.getElementById('create-post');
+let plusIcon = document.getElementById('plus');
+let inputPost = document.getElementById('input-post');
+let closeBtn = document.getElementById('close-btn');
+let closeIcon = document.getElementById('close');
 
 // FUNCTIONS
 
@@ -48,8 +52,10 @@ renderDummyPosts = (res) => {
 fetchDummy();
 
 // --------- Handle create posts ------------
-createDefault.addEventListener('click', toggleCreate);
-createPostDiv.addEventListener('click', toggleCreate);
+inputPost.addEventListener('click', toggleCreate);
+plusIcon.addEventListener('click', toggleCreate);
+closeBtn.addEventListener('click', toggleCreate);
+closeIcon.addEventListener('click', toggleCreate);
 
 let showDefault = true;
 
@@ -58,11 +64,11 @@ function toggleCreate() {
     showDefault = !showDefault;
 
     if (showDefault) {
-        createDefault.style.display = 'block';
+        createDefault.style.display = 'flex';
         createPostDiv.style.display = 'none';
     } else {
         createDefault.style.display = 'none';
-        createPostDiv.style.display = 'block';
+        createPostDiv.style.display = 'flex';
     }
 
     console.log(showDefault);

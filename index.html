@@ -36,7 +36,11 @@
                 dummyReddit
             </a>
             <!-- <span for="search" class="material-symbols-outlined"> search</span> -->
-            <input type="search" placeholder="Search DummyReddit..." />
+            <input
+                type="search"
+                placeholder="Search DummyReddit..."
+                id="input-search"
+            />
 
             <section id="header-btns">
                 <button id="app-btn">Get app</button>
@@ -70,8 +74,45 @@
             </aside>
             <main id="main-container">
                 <section id="create-post-container">
-                    <div id="create-default">hello</div>
-                    <div id="create-post">create posts</div>
+                    <div id="create-default">
+                        <img src="./img/plus.png" id="plus" />
+                        <input
+                            type="text"
+                            placeholder="Create Post"
+                            id="input-post"
+                            class="create-input"
+                        />
+                    </div>
+                    <div id="create-post">
+                        <div id="create-post-header">
+                            <h3>Create a post</h3>
+                            <img src="./img/close.png" id="close" />
+                        </div>
+                        <input
+                            type="text"
+                            id="input-title"
+                            placeholder="Chose a title"
+                            class="create-input"
+                        />
+                        <textarea
+                            id="input-post-body"
+                            placeholder="Write your post"
+                            class="create-input"
+                        ></textarea>
+
+                        <input
+                            type="text"
+                            id="input-tags"
+                            placeholder="Add some #tags"
+                            class="create-input"
+                        />
+                        <section id="btn-container">
+                            <button id="close-btn">
+                                Never mind, discard this post
+                            </button>
+                            <button id="post-btn">POST</button>
+                        </section>
+                    </div>
                 </section>
                 <section id="posts-container"></section>
             </main>
