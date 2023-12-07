@@ -34,12 +34,15 @@ input {
     border: solid 1px #343536;
     padding: 1em;
     min-width: fit-content;
-    width: 50%;
     background-color: #29292b;
     color: #757575;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 300;
     font-size: 14px;
+}
+
+#input-search {
+    width: 50%;
 }
 /*
 .material-symbols-outlined {
