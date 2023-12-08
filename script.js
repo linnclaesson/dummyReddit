@@ -99,6 +99,11 @@ function newPost() {
     postsContainer.append(newPost);
     newPost.append(newTitle, newPostBody, newTags);
 
+    // reset input values
+    document.getElementById('input-title').value = '';
+    document.getElementById('input-post-body').value = '';
+    document.getElementById('input-tags').value = '';
+
     // switch back to create default-mode
     toggleCreate();
 }
