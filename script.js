@@ -58,7 +58,7 @@ inputPost.addEventListener('click', toggleCreate);
 plusIcon.addEventListener('click', toggleCreate);
 closeBtn.addEventListener('click', toggleCreate);
 closeIcon.addEventListener('click', toggleCreate);
-postBtn.addEventListener('click', toggleCreate);
+postBtn.addEventListener('click', newPost);
 
 let showDefault = true;
 
@@ -76,4 +76,29 @@ function toggleCreate() {
     }
 
     console.log(showDefault);
+}
+
+// Handle input value and publish post
+function newPost() {
+    let title = document.getElementById('input-title').value;
+    let postBody = document.getElementById('input-post-body').value;
+    let tags = document.getElementById('input-tags').value;
+    console.log(title, postBody, tags);
+
+    // create new elements
+    let newPost = document.createElement('div');
+    let newTitle = document.createElement('h2');
+    let newPostBody = document.createElement('p');
+    let newTags = document.createElement('h4');
+    // assign data to element
+    newTitle.innerText = title;
+    newPostBody.innerText = postBody;
+    // regulate structure of tags
+    newTags.innerText = tags; //.map((tag) => '#' + tag).join(' ');
+    // append created elements
+    postsContainer.append(newPost);
+    newPost.append(newTitle, newPostBody, newTags);
+
+    // switch back to create default-mode
+    toggleCreate();
 }
