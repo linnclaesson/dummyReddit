@@ -39,8 +39,6 @@ renderDummyPosts = (res) => {
         // assign data to element
         title.innerText = item.title;
         postBody.innerText = item.body;
-        //check amount of tags
-        console.log(item.tags.length);
         // regulate structure of tags
         tags.innerText = item.tags.map((tag) => '#' + tag).join(' ');
         // append created elements
@@ -64,7 +62,6 @@ let showDefault = true;
 
 // Switch create post between default and create-mode
 function toggleCreate() {
-    console.log('here');
     showDefault = !showDefault;
 
     if (showDefault) {
@@ -74,8 +71,6 @@ function toggleCreate() {
         createDefault.style.display = 'none';
         createPostDiv.style.display = 'flex';
     }
-
-    console.log(showDefault);
 }
 
 // Handle input value and publish post
