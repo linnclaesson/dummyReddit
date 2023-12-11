@@ -1,3 +1,4 @@
+/* Structure */
 #posts-container {
     display: flex;
     flex-direction: column;
@@ -5,13 +6,30 @@
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
-#posts-container div {
+#posts-container section {
+    display: flex;
     background-color: #1a1a1b;
-    padding: 1em 2em;
+    gap: 0.5em;
     border-radius: 5px;
     border: solid 1px #343536;
 }
+/* Style reactions */
+#posts-container section section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #29292b;
+    padding: 1em;
+}
+#posts-container section section img {
+    height: 1.5em;
+    padding: 0.5em 0.5em;
+}
 
+/* Style content */
+#posts-container section div {
+    padding: 1em;
+}
 #posts-container div h2 {
     font-size: 18;
     font-weight: 500;
@@ -30,6 +48,14 @@
 }
 
 /* Animations */
-#posts-container div:hover {
-    border: solid 1px #464748;
+#posts-container section:hover {
+    border: solid 1px #d7dadc;
+}
+#posts-container section section:hover {
+    border: solid 1px #343536;
+}
+#posts-container section section img:hover {
+    cursor: pointer;
+    background-color: #1a1a1b;
+    border-radius: 5px;
 }

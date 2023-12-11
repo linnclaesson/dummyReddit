@@ -8,6 +8,8 @@ let inputPost = document.getElementById('input-post');
 let closeBtn = document.getElementById('close-btn');
 let closeIcon = document.getElementById('close');
 let postBtn = document.getElementById('post-btn');
+let down;
+let up;
 
 // FUNCTIONS
 
@@ -32,18 +34,40 @@ renderDummyPosts = (res) => {
     for (let i = 0; i < res.length; i++) {
         let item = res[i];
         // create elements
-        let post = document.createElement('div');
+        let post = document.createElement('section');
+        let content = document.createElement('div');
         let title = document.createElement('h2');
         let postBody = document.createElement('p');
         let tags = document.createElement('h4');
+        let reactSection = document.createElement('section');
+        let reactions = document.createElement('p');
+        down = document.createElement('img');
+        up = document.createElement('img');
+
         // assign data to element
         title.innerText = item.title;
         postBody.innerText = item.body;
+        reactions.innerText = item.reactions;
         // regulate structure of tags
         tags.innerText = item.tags.map((tag) => '#' + tag).join(' ');
+        // img
+        down.src = './img/down.png';
+        up.src = './img/up.png';
         // append created elements
         postsContainer.append(post);
-        post.append(title, postBody, tags);
+        post.append(reactSection, content);
+        content.append(title, postBody, tags);
+        reactSection.append(up, reactions, down);
+
+        let count = item.reactions;
+        up.addEventListener('click', () => {
+            count++;
+            reactions.innerText = count;
+        });
+        down.addEventListener('click', () => {
+            count--;
+            reactions.innerText = count;
+        });
     }
 };
 
@@ -85,19 +109,39 @@ function newPost() {
     console.log(title, postBody, tags);
 
     // create new elements
-    let newPost = document.createElement('div');
+    let newPost = document.createElement('section');
     let newTitle = document.createElement('h2');
     let newPostBody = document.createElement('p');
     let newTags = document.createElement('h4');
+    let content = document.createElement('div');
+    let reactSection = document.createElement('section');
+    let reactions = document.createElement('p');
+    down = document.createElement('img');
+    up = document.createElement('img');
+    // img
+    down.src = './img/down.png';
+    up.src = './img/up.png';
     // assign data to element
     newTitle.innerText = title;
     newPostBody.innerText = postBody;
+    reactions.innerText = 0;
     // regulate structure of tags
     newTags.innerText = tags; //.map((tag) => '#' + tag).join(' ');
     // append created elements
     postsContainer.append(newPost);
-    newPost.append(newTitle, newPostBody, newTags);
+    newPost.append(reactSection, content);
+    content.append(newTitle, newPostBody, newTags);
+    reactSection.append(up, reactions, down);
 
+    let count = 0;
+    up.addEventListener('click', () => {
+        count++;
+        reactions.innerText = count;
+    });
+    down.addEventListener('click', () => {
+        count--;
+        reactions.innerText = count;
+    });
     // switch back to create default-mode
     toggleCreate();
 }
