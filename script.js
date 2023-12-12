@@ -10,7 +10,7 @@ let closeIcon = document.getElementById('close');
 let postBtn = document.getElementById('post-btn');
 let down;
 let up;
-
+let allPosts = [];
 // FUNCTIONS
 
 // ----------- Handle fetch ------------
@@ -22,6 +22,8 @@ fetchDummy = () => {
             console.log('fetch successful');
             // call renderDummyPosts
             renderDummyPosts(res.posts);
+
+            localStorage.setItem('posts', JSON.stringify(res.posts));
         });
 };
 
@@ -106,6 +108,11 @@ function newPost() {
     let title = document.getElementById('input-title').value;
     let postBody = document.getElementById('input-post-body').value;
     let tags = document.getElementById('input-tags').value;
+
+    tags = tags.split(' ');
+    // america, history
+    // america history cookie => ["america", "history", "cookie"]
+
     console.log(title, postBody, tags);
 
     // create new elements
@@ -118,6 +125,8 @@ function newPost() {
     let reactions = document.createElement('p');
     down = document.createElement('img');
     up = document.createElement('img');
+    // put newPost at top of page
+    newPost.style.order = '-1';
     // img
     down.src = './img/down.png';
     up.src = './img/up.png';
@@ -126,9 +135,11 @@ function newPost() {
     newPostBody.innerText = postBody;
     reactions.innerText = 0;
     // regulate structure of tags
-    newTags.innerText = tags; //.map((tag) => '#' + tag).join(' ');
+    newTags.innerText = tags.map((tag) => '#' + tag).join(' ');
     // append created elements
+    //postsContainer.append(newPost);
     postsContainer.append(newPost);
+    //array.unshift()
     newPost.append(reactSection, content);
     content.append(newTitle, newPostBody, newTags);
     reactSection.append(up, reactions, down);
