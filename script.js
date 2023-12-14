@@ -11,30 +11,61 @@ let postBtn = document.getElementById('post-btn');
 let down;
 let up;
 let allPosts = [];
+
 // FUNCTIONS
+
+// Load posts from local storage
+let savedPosts = localStorage.getItem('RedditPosts');
+// if there are posts stored, render them to browser
+if (savedPosts !== null) {
+    allPosts = JSON.parse(savedPosts);
+    console.log('Data found');
+    console.log(allPosts);
+    renderPosts(allPosts);
+} else {
+    console.log('No data in local storage: fetch Dummy posts');
+    // Call fetch dummy
+    fetchDummy();
+}
+
+// save to local storage
+function storePosts(posts) {
+    localStorage.setItem('RedditPosts', JSON.stringify(posts));
+    console.log(localStorage);
+}
+
+//localStorage.removeItem('RedditPosts');
 
 // ----------- Handle fetch ------------
 // fetch dummy posts
-fetchDummy = () => {
+function fetchDummy() {
     fetch('https://dummyjson.com/posts?limit=4&skip=20')
         .then((res) => res.json())
         .then((res) => {
             console.log('fetch successful');
+            let fetchedData = res.posts;
+            //console.log(fetchedData);
+
+            allPosts = fetchedData;
+            //console.log(allPosts);
+
+            // push fetched posts to posts array
+            //allPosts.push(newObj);
             // call renderDummyPosts
-            renderDummyPosts(res.posts);
+            //renderDummyPosts(res.posts);
 
-            localStorage.setItem('posts', JSON.stringify(res.posts));
+            // call store all posts
+            storePosts(res.posts);
+            renderPosts(allPosts);
         });
-};
+}
 
-// render dummy posts: create elements to display the fetched data in browser
-renderDummyPosts = (res) => {
-    // log the fetched data
-    console.log(res);
-
+// render all posts
+function renderPosts(allPosts) {
+    console.log('I got here!');
     // loop through fetched data
-    for (let i = 0; i < res.length; i++) {
-        let item = res[i];
+    for (let i = 0; i < allPosts.length; i++) {
+        let item = allPosts[i];
         // create elements
         let post = document.createElement('section');
         let content = document.createElement('div');
@@ -61,20 +92,18 @@ renderDummyPosts = (res) => {
         content.append(title, postBody, tags);
         reactSection.append(up, reactions, down);
 
-        let count = item.reactions;
         up.addEventListener('click', () => {
-            count++;
-            reactions.innerText = count;
+            item.reactions++;
+            reactions.innerText = item.reactions;
+            storePosts(allPosts);
         });
         down.addEventListener('click', () => {
-            count--;
-            reactions.innerText = count;
+            item.reactions--;
+            reactions.innerText = item.reactions;
+            storePosts(allPosts);
         });
     }
-};
-
-// Call fetchDummy --> fetch dummy posts
-fetchDummy();
+}
 
 // --------- Handle create posts ------------
 // event listeners
@@ -114,6 +143,15 @@ function newPost() {
     // america history cookie => ["america", "history", "cookie"]
 
     console.log(title, postBody, tags);
+
+    let post = {
+        title,
+        body: postBody,
+        tags,
+        reactions: 0,
+    };
+    allPosts.unshift(post);
+    storePosts(allPosts);
 
     // create new elements
     let newPost = document.createElement('section');
