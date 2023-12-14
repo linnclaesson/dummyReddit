@@ -1,5 +1,4 @@
-//ACCESS ELEMENTS
-// get section for posts by id
+//ACCESS DOM ELEMENTS
 let postsContainer = document.getElementById('posts-container');
 let createDefault = document.getElementById('create-default');
 let createPostDiv = document.getElementById('create-mode');
@@ -8,6 +7,7 @@ let inputPost = document.getElementById('input-post');
 let closeBtn = document.getElementById('close-btn');
 let closeIcon = document.getElementById('close');
 let postBtn = document.getElementById('post-btn');
+// VARIABLES
 let down;
 let up;
 let allPosts = [];
@@ -31,31 +31,23 @@ if (savedPosts !== null) {
 // save to local storage
 function storePosts(posts) {
     localStorage.setItem('RedditPosts', JSON.stringify(posts));
-    console.log(localStorage);
 }
 
+// Un-comment to clear local storage
 //localStorage.removeItem('RedditPosts');
 
 // ----------- Handle fetch ------------
 // fetch dummy posts
 function fetchDummy() {
-    fetch('https://dummyjson.com/posts?limit=4&skip=20')
+    fetch('https://dummyjson.com/posts?limit=35&skip=30')
         .then((res) => res.json())
         .then((res) => {
             console.log('fetch successful');
             let fetchedData = res.posts;
-            //console.log(fetchedData);
-
             allPosts = fetchedData;
-            //console.log(allPosts);
 
-            // push fetched posts to posts array
-            //allPosts.push(newObj);
-            // call renderDummyPosts
-            //renderDummyPosts(res.posts);
-
-            // call store all posts
-            storePosts(res.posts);
+            // store fetched posts and render them in browser
+            storePosts(fetchedData);
             renderPosts(allPosts);
         });
 }
@@ -106,7 +98,7 @@ function renderPosts(allPosts) {
 }
 
 // --------- Handle create posts ------------
-// event listeners
+// Event listeners
 inputPost.addEventListener('click', toggleCreate);
 plusIcon.addEventListener('click', toggleCreate);
 closeBtn.addEventListener('click', toggleCreate);
@@ -115,7 +107,7 @@ postBtn.addEventListener('click', newPost);
 
 let showDefault = true;
 
-// Switch create post between default and create-mode
+// Toggle create post between default and create-mode
 function toggleCreate() {
     showDefault = !showDefault;
 
@@ -137,20 +129,17 @@ function newPost() {
     let title = document.getElementById('input-title').value;
     let postBody = document.getElementById('input-post-body').value;
     let tags = document.getElementById('input-tags').value;
-
-    tags = tags.split(' ');
-    // america, history
-    // america history cookie => ["america", "history", "cookie"]
+    tags = tags.split(' '); // america history cookie => ["america", "history", "cookie"]
 
     console.log(title, postBody, tags);
 
-    let post = {
+    let createNewPost = {
         title,
         body: postBody,
         tags,
         reactions: 0,
     };
-    allPosts.unshift(post);
+    allPosts.unshift(createNewPost);
     storePosts(allPosts);
 
     // create new elements
@@ -171,25 +160,24 @@ function newPost() {
     // assign data to element
     newTitle.innerText = title;
     newPostBody.innerText = postBody;
-    reactions.innerText = 0;
+    reactions.innerText = createNewPost.reactions;
     // regulate structure of tags
     newTags.innerText = tags.map((tag) => '#' + tag).join(' ');
     // append created elements
-    //postsContainer.append(newPost);
     postsContainer.append(newPost);
-    //array.unshift()
     newPost.append(reactSection, content);
     content.append(newTitle, newPostBody, newTags);
     reactSection.append(up, reactions, down);
 
-    let count = 0;
     up.addEventListener('click', () => {
-        count++;
-        reactions.innerText = count;
+        createNewPost.reactions++;
+        reactions.innerText = createNewPost.reactions;
+        storePosts(allPosts);
     });
     down.addEventListener('click', () => {
-        count--;
-        reactions.innerText = count;
+        createNewPost.reactions--;
+        reactions.innerText = createNewPost.reactions;
+        storePosts(allPosts);
     });
     // switch back to create default-mode
     toggleCreate();
